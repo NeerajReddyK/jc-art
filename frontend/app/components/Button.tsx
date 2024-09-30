@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation"; // Import useRouter for navigation
+import { useRouter } from "next/navigation"; 
 
 interface ButtonProps {
   name: string
@@ -10,7 +10,7 @@ const Button: React.FC<ButtonProps> = ({name}) => {
   const router = useRouter();
 
   const handleButtonClick = () => {
-    router.push("/what-people-are-saying"); // Redirect to the new route
+    router.push("/what-people-are-saying"); // Redirects to the respective route
   };
 
   return (

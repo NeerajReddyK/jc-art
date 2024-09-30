@@ -1,4 +1,6 @@
 "use client";
+
+// imported from Aceternity UI to add effects for text-generation
 import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";

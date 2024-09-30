@@ -1,5 +1,5 @@
 "use client";
-
+// imported from Aceternity UI for the header.
 import { cn } from "@/lib/utils";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";

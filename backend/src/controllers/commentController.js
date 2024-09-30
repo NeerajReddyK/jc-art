@@ -21,15 +21,15 @@ const createComment = async (req, res) => {
 // Fetch all comments, optionally threaded
 const getComments = async (req, res) => {
   try {
-    // Fetch parent comments (parentId: null)
+    // fetch parent comments (parentId: null)
     const parentComments = await Comment.find({ parentId: null }).lean();
 
-    // Find replies for each comment and build a threaded structure
+    // fetch nested comments
     const fetchReplies = async (parentComment) => {
       const replies = await Comment.find({ parentId: parentComment._id }).lean();
       if (replies.length > 0) {
         parentComment.replies = replies;
-        await Promise.all(replies.map(fetchReplies));  // Recursively fetch replies
+        await Promise.all(replies.map(fetchReplies));  // fetches all replies
       }
     };
 

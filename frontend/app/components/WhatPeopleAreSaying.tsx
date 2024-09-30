@@ -10,19 +10,21 @@ type Comment = {
   replies?: Comment[];
 };
 
+const url = "http://localhost:5000/api/comments" // Local backend. Deployed link should be replaced if deployed.
+
 const WhatPeopleAreSaying = () => {
   const [comments, setComments] = useState<Comment[]>([]);
   const [loading, setLoading] = useState(false);
-  const [newComment, setNewComment] = useState(""); // New comment text state
-  const [newName, setNewName] = useState(""); // New comment name state
-  const [replyText, setReplyText] = useState(""); // Text for replies
-  const [replyName, setReplyName] = useState(""); // Name for replies
-  const [replyTo, setReplyTo] = useState<string | null>(null); // Tracks which comment is being replied to
+  const [newComment, setNewComment] = useState(""); 
+  const [newName, setNewName] = useState(""); 
+  const [replyText, setReplyText] = useState(""); 
+  const [replyName, setReplyName] = useState(""); 
+  const [replyTo, setReplyTo] = useState<string | null>(null); 
 
   const fetchComments = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/api/comments");
+      const response = await axios.get(url);
       setComments(response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -38,7 +40,7 @@ const WhatPeopleAreSaying = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/comments", {
+      const response = await axios.post(url, {
         name: newName || "Anonymous User",
         text: newComment,
       });

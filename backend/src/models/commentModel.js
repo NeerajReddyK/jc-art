@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// creates schema to store in database
 const commentSchema = new mongoose.Schema({
   name: {
     type: String,

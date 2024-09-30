@@ -23,7 +23,7 @@ const HeroComponent = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.6, // control the speed
+              duration: 0.6, // controls the speed of transition, decrease to slow, increase to speed.
               ease: "easeInOut",
               staggerChildren: 0.2, // stagger effect for the spans
             }}
@@ -69,8 +69,8 @@ const HeroComponent = () => {
           <BackgroundGradient className="rounded-[22px]p-0 m-0 w-full lg:max-w-[500px]"> 
             <motion.div
               initial={{ scale: 1 }} // Default scale
-              whileHover={{ scale: 1.05 }} // Increase scale on hover (pop effect)
-              transition={{ type: "spring", stiffness: 300, damping: 55 }} // Spring transition for smooth pop
+              whileHover={{ scale: 1.05 }} // Increase scale on hover 
+              transition={{ type: "spring", stiffness: 300, damping: 55 }} // Spring transition for smoothness
               className="flex justify-center items-center w-auto h-auto" 
             >
               <Image
@@ -103,4 +103,4 @@ const HeroComponent = () => {
   )
 }
 
-export default HeroComponent
+export default HeroComponent;
